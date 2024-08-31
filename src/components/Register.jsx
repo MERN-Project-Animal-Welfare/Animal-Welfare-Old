@@ -8,7 +8,8 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO: Implement registration logic
-    console.log('Registration attempt', { name, email, password });
+    let obj = Object.fromEntries(new FormData(e.target).entries());
+    console.log('Register attempt', obj);
   };
 
   return (
@@ -20,6 +21,7 @@ function Register() {
           <input
             type="text"
             id="name"
+            name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -30,6 +32,7 @@ function Register() {
           <input
             type="email"
             id="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -40,6 +43,7 @@ function Register() {
           <input
             type="password"
             id="password"
+            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
