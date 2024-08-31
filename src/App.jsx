@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import AdoptPet from './components/AdoptPet';
 import { 
   Dashboard, 
   PutUpForAdoption, 
-  AdoptPet, 
   ContactVet, 
   ReportAnimal, 
   Volunteer 

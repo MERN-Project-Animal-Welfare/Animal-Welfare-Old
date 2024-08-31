@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 function Dashboard() {
   return (
@@ -52,36 +53,18 @@ function PutUpForAdoption() {
   );
 }
 
-function AdoptPet() {
-  return (
-    <div>
-      <h2>Adopt a Pet</h2>
-      <div>
-        <h3>Available Pets</h3>
-        <ul>
-          <li>
-            <h4>Buddy (Dog)</h4>
-            <p>Age: 3 years</p>
-            <p>Friendly golden retriever looking for a loving home.</p>
-            <button>Request to Adopt</button>
-          </li>
-          <li>
-            <h4>Whiskers (Cat)</h4>
-            <p>Age: 2 years</p>
-            <p>Playful tabby cat, great with children.</p>
-            <button>Request to Adopt</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-}
-
 function ContactVet() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: Implement login logic
+    let obj = Object.fromEntries(new FormData(e.target).entries());
+    console.log('Contact Vet', obj);
+  };
+
   return (
     <div>
       <h2>Contact a Vet</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Your Name:
           <input type="text" name="name" />
@@ -109,10 +92,17 @@ function ContactVet() {
 }
 
 function ReportAnimal() {
+   const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: Implement login logic
+    let obj = Object.fromEntries(new FormData(e.target).entries());
+    console.log('Reporting', obj);
+  };
+
   return (
     <div>
       <h2>Report a Stray/Injured Animal</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Animal Type:
           <input type="text" name="animalType" />
@@ -160,4 +150,4 @@ function Volunteer() {
   );
 }
 
-export { Dashboard, PutUpForAdoption, AdoptPet, ContactVet, ReportAnimal, Volunteer };
+export { Dashboard, PutUpForAdoption, ContactVet, ReportAnimal, Volunteer };
